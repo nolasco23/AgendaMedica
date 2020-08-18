@@ -1,0 +1,39 @@
+<h1>{{modoEdicao? "Editar":"Incluir"}} Paciente</h1>
+
+<form class="form-horizontal" novalidate (ngSubmit)="save()" [formGroup]="formGroup">
+    <fieldset>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('nome').touched || formGroup.get('nome').dirty) && !formGroup.get('nome').valid}">
+            <label class="col-md-2 control-label" for="nome">Nome:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="nome" type="text" required formControlName="nome" />
+                <span class="help-block" *ngIf="(formGroup.get('nome').touched || formGroup.get('nome').dirty) && formGroup.get('nome').errors">
+                    <span *ngIf="formGroup.get('nome').errors.required">
+                        O campo nome é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('nascimento').touched || formGroup.get('nascimento').dirty) && !formGroup.get('nascimento').valid}">
+            <label class="col-md-2 control-label" for="nascimento">Data de Nascimento:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="nascimento" displayFormat="DD/MM/YY" type="date" required formControlName="nascimento" />
+                <span class="help-block"
+                    *ngIf="(formGroup.get('nascimento').touched || formGroup.get('nascimento').dirty) && formGroup.get('nascimento').errors">
+                    <span *ngIf="formGroup.get('nascimento').errors.required">
+                        O campo data de nascimento é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Salvar</button>
+                    <button class="btn btn-danger"  [routerLink]='["/paciente"]'  style="margin: 0 15px;">Cancelar</button> 
+                </span>
+            </div>
+        </div> 
+    </fieldset> 
+</form>

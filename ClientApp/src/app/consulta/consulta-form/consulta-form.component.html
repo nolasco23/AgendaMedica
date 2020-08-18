@@ -1,0 +1,106 @@
+
+
+<h1>{{modoEdicao? "Editar":"Incluir"}} Consulta</h1>
+
+<form class="form-horizontal" novalidate (ngSubmit)="save()" [formGroup]="formGroup">
+    <fieldset>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('IdPaciente').touched || formGroup.get('IdPaciente').dirty) && !formGroup.get('IdPaciente').valid}">
+            <label class="col-md-2 control-label" for="paciente">Paciente:</label>
+            <div class="col-md-8">
+
+                <select [(ngModel)]="selectedValue" class="form-control" id="paciente" required
+                    formControlName="IdPaciente">
+                    <option value="">Selecione um paciente</option>
+                    <option *ngFor="let paciente of pacientes" value="{{paciente.id}}">{{paciente.nome}}</option>
+                </select>
+
+                <span class="help-block"
+                    *ngIf="(formGroup.get('IdPaciente').touched || formGroup.get('IdPaciente').dirty) && formGroup.get('IdPaciente').errors">
+                    <span *ngIf="formGroup.get('paciente').errors.required">
+                        O campo nome do paciente é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('DataInicio').touched || formGroup.get('DataInicio').dirty) && !formGroup.get('DataInicio').valid}">
+            <label class="col-md-2 control-label" for="DataInicio">Data de Inicial:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="DataInicio" type="date" required formControlName="DataInicio" />
+                <span class="help-block"
+                    *ngIf="(formGroup.get('DataInicio').touched || formGroup.get('DataInicio').dirty) && formGroup.get('DataInicio').errors">
+                    <span *ngIf="formGroup.get('DataInicio').errors.required">
+                        O campo data inicial é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('DataFim').touched || formGroup.get('DataFim').dirty) && !formGroup.get('DataFim').valid}">
+            <label class="col-md-2 control-label" for="DataFim">Data de Final:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="DataFim" type="date" required formControlName="DataFim" (blur)="RangeData()" />
+                <span class="help-block"
+                    *ngIf="(formGroup.get('DataFim').touched || formGroup.get('DataFim').dirty) && formGroup.get('DataFim').errors">
+                    <span *ngIf="formGroup.get('DataFim').errors.required">
+                        O campo data final é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('HoraInicio').touched || formGroup.get('HoraInicio').dirty) && !formGroup.get('HoraInicio').valid}">
+            <label class="col-md-2 control-label" for="HoraInicio">Hora Inicial:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="HoraInicio" type="time" required formControlName="HoraInicio" />
+                <span class="help-block"
+                    *ngIf="(formGroup.get('HoraInicio').touched || formGroup.get('HoraInicio').dirty) && formGroup.get('HoraInicio').errors">
+                    <span *ngIf="formGroup.get('HoraInicio').errors.required">
+                        O campo hora inicial é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('HoraFim').touched || formGroup.get('HoraFim').dirty) && !formGroup.get('HoraFim').valid}">
+            <label class="col-md-2 control-label" for="HoraFim">Hora Final:</label>
+            <div class="col-md-8">
+                <input class="form-control" id="HoraFim" type="time" required formControlName="HoraFim" (blur)="RangeHora()"/>
+                <span class="help-block"
+                    *ngIf="(formGroup.get('HoraFim').touched || formGroup.get('HoraFim').dirty) && formGroup.get('HoraFim').errors">
+                    <span *ngIf="formGroup.get('HoraFim').errors.required">
+                        O campo data inicial é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+            [ngClass]="{'has-error':(formGroup.get('Observacoes').touched || formGroup.get('Observacoes').dirty) && !formGroup.get('Observacoes').valid}">
+            <label class="col-md-2 control-label" for="Observacoes">Observação :</label>
+            <div class="col-md-8">
+                <input class="form-control" id="Observacoes" type="text" required formControlName="Observacoes" />
+                <span class="help-block"
+                    *ngIf="(formGroup.get('Observacoes').touched || formGroup.get('Observacoes').dirty) && formGroup.get('Observacoes').errors">
+                    <span *ngIf="formGroup.get('Observacoes').errors.required">
+                        O campo nome do observação é obrigatório
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary" type="submit" [disabled]="!formGroup.valid">Salvar</button>
+                    <button class="btn btn-danger" style="margin: 0 15px;"
+                        [routerLink]='["/consulta"]'>Cancelar</button>
+                </span>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,34 @@
+<h3>Consultas</h3>
+<button [routerLink]='["/consulta-incluir"]' class="btn btn-primary">Incluir Consultas</button>
+
+<p *ngIf="!(consultas && consultas.length)">
+    Nenhuma consulta cadastradas
+</p>
+<table class="table table-striped" aria-labelledby="tableLabel" *ngIf="consultas">
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Data inicial</th>
+            <th>Data final</th>
+            <th>Hora inicial</th>
+            <th>Hora final</th>
+            <th>Observação</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let consulta of consultas">
+            <td >{{getPacientNameById(consulta.idPaciente) }}</td>
+            <td>{{ consulta.dataInicio | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ consulta.dataFim | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ consulta.horaInicio | date: 'hh:mm' }}</td>
+            <td>{{ consulta.horaFim  | date: 'hh:mm' }}</td>
+            <td>{{ consulta.observacoes }}</td>
+            <td>
+                <button class="btn btn-success"  [routerLink]='["/consulta-editar/"+consulta.id]'>Alterar</button>
+                <button class="btn btn-danger" (click)="delete(consulta)" style="margin: 0 15px;">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+ 

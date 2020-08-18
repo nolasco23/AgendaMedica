@@ -1,0 +1,26 @@
+<h3>Pacientes</h3>
+<button [routerLink]='["/paciente-incluir"]' class="btn btn-primary">Incluir Paciente</button>
+
+<p *ngIf="!(pacientes && pacientes.length)">
+    Nenhum paciente cadastrados
+</p>
+<table class="table table-striped" aria-labelledby="tableLabel" *ngIf="pacientes">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nascimeto</th>
+            <th>Comando</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let paciente of pacientes">
+            <td>{{ paciente.nome }}</td>
+            <td>{{ paciente.nascimento | date: 'dd/MM/yyyy' }}</td> 
+            <td>
+                <button class="btn btn-success" [routerLink]='["/paciente-editar/" + paciente.id]'>Alterar</button>
+                <button class="btn btn-danger" (click)="delete(paciente);" style="margin: 0 15px;">Excluir</button>                
+            </td>
+        </tr>
+    </tbody>
+</table>
+ 
