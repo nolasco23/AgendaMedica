@@ -1,4 +1,4 @@
-# AgendaMedica
+# Agenda Medica
 
 <p align="center">
   <img alt="" src="http://www.itixti.com.br/images/logo-dark@2x.png" /></p>
