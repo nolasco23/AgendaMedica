@@ -47,7 +47,7 @@ namespace AgendaMedica.Migrations
             migrationBuilder.Sql ("INSERT INTO Pacientes (nome, nascimento) VALUES ('Clayton Gomes','1962/09/03')");
 
             migrationBuilder.Sql ("INSERT INTO Consultas (IdPaciente,DataInicio,DataFim,HoraInicio,HoraFim,Observacoes) VALUES ( '1', '2020-08-12', '2020-08-28',  '21:59', '23:59', 'Tstes')");
-            migrationBuilder.Sql ("INSERT INTO Consultas (IdPaciente,DataInicio,DataFim,HoraInicio,HoraFim,Observacoes) VALUES ('10','2020-08-12','2020-08-28','21:59','23:59', 'Ittix')");
+            migrationBuilder.Sql ("INSERT INTO Consultas (IdPaciente,DataInicio,DataFim,HoraInicio,HoraFim,Observacoes) VALUES ('2','2020-08-12','2020-08-28','21:59','23:59', 'Ittix')");
 
         }
 
