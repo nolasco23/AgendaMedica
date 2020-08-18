@@ -20,13 +20,14 @@ Criar uma aplicação que simule uma agenda de compromissos de um consultório m
 * Utilizar o .NET Core
 
 ## Instalação
-dotnet restore
-dotnet build
-dotnet ef database update --context AppDbContext 
-dotnet run
+* dotnet restore
+* dotnet build
+* dotnet ef database update --context AppDbContext 
+* dotnet run
 
 ## Configuração DB linux e Windows
-Windows: "ConnectionStrings": {
+* Windows: "ConnectionStrings": {
       "AgendeCompromissoDB": "Server=DESKTOP-ES91M7V;Initial Catalog=AgendeCompromissoDB;Trusted_Connection=True;MultipleActiveResultSets=true"
-Linux: "AgendeCompromissoDB":"Server=localhost;Database=AgendaCompromisso;MultipleActiveResultSets=true;User id=SA;Password=Minerva17;"
+      
+* Linux: "AgendeCompromissoDB":"Server=localhost;Database=AgendaCompromisso;MultipleActiveResultSets=true;User id=SA;Password=Minerva17;"
  }
