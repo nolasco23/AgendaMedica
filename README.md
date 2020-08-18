@@ -29,5 +29,5 @@ Criar uma aplicação que simule uma agenda de compromissos de um consultório m
 * Windows: "ConnectionStrings": {
       "AgendeCompromissoDB": "Server=DESKTOP-ES91M7V;Initial Catalog=AgendeCompromissoDB;Trusted_Connection=True;MultipleActiveResultSets=true"
       
-* Linux: "AgendeCompromissoDB":"Server=localhost;Database=AgendaCompromisso;MultipleActiveResultSets=true;User id=SA;Password=Minerva17;"
+* Linux: "AgendeCompromissoDB":"Server=localhost;Database=AgendaCompromisso;MultipleActiveResultSets=true;User id=SA;Password=senha1234;"
  }
